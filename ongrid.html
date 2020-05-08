@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PV System Calulator</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 ,user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body class="homepage">
+    <div class="wrapper">
+        <header class="site-header">
+            <a href="index.html"><img src="images/home.png" class="home-btn"></a>
+            <h1>Grid Connected PV System Designer</h1>
+        </header>
+        <main class="main-content">
+            <div class="card-wrapper" id="first">
+                <div class="card">
+
+                    <h2>Energy Requirement Calculation</h2>
+                    <div class="energy-container">
+                        <span>Daily Energy Usage (kWhr / day): </span>
+                        <div class="text-field-group">
+                            <input class="textarea" id="requirement" type="number" required>
+                            <span class="bar"></span>
+                            <label class="Label">kWhr</lable>
+                        </div>
+                    </div>
+                    <div style="margin-top: 3rem; font-size: 1.25rem;">% Energy to be derieved from Solar:</div>
+                    <div class="slider">
+                        <input type="range" id="slider1" value="10" oninput="rangevalue1.value=value" />
+                        <output id="rangevalue1">10</output>
+                    </div>
+                    <div class="dropdown">
+                        <div class="select">
+                            <select id="state" class="select-text" required>
+                                <option value="" disabled selected></option>
+                            </select>
+                            <span class="select-highlight"></span>
+                            <span class="select-bar"></span>
+                            <label class="select-label">State</label>
+                        </div>
+                        <div class="select">
+                            <select id="city" class="select-text" required>
+                                <option value="" disabled selected></option>
+                            </select>
+                            <span class="select-highlight"></span>
+                            <span class="select-bar"></span>
+                            <label class="select-label">City</label>
+                        </div>
+                        <div>
+                            <span id='sunHours'>Solar Irradiation: </span>
+                        </div>
+                    </div>
+                    <a href="#second">
+                        <div class="nav-button" id="systemConstrain">
+                            Next
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="card-wrapper" id="second">
+                <div class="card">
+
+                    <h2>Array Size Calculation</h2>
+
+                    <div class="radio-group">
+                        <label for="r7">
+                            <input id="r7" type="radio" name="g3" checked /><span>Standard Panels (15%)</span>
+                        </label>
+                        <label for="r8">
+                            <input id="r8" type="radio" name="g3" /><span>Premium Panels (20%)</span>
+                        </label>
+                        <label for="r9">
+                            <input id="r9" type="radio" name="g3" /><span>Thin Film Panels (13%)</span>
+                        </label>
+                    </div>
+                    <div style="margin-top: 3rem; font-size: 1.25rem;">Module Wattage:</div>
+                    <div class="slider">
+                        <input value="20" id="rv3" type="range" min="5" max="400" step="5"
+                            oninput="rangevalue3.value=value" />
+                        <output id="rangevalue3">20</output>
+                    </div>
+                    <div id="solarPanel" class="nav-button-list">
+                        <a href="#first">
+                            <div class="nav-button">
+                                Previous
+                            </div>
+                        </a>
+                        <a href="#third">
+                            <div class="nav-button">
+                                Next
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-wrapper" id="third">
+                <div class="card">
+                    <h2>Advanced Parameters</h2>
+                    <div class="default-parameters">
+                        <div class="form__group">
+                            <label for="num1" class="form__label">Operating Temperature (*C)</label>
+                            <input type="number" id="opTemp" class="form__field" value=25>
+                        </div>
+                        <div class="form__group">
+                            <label for="num2" class="form__label">Inverter Losses (%)</label>
+                            <input type="number" id="inverterLoss" class="form__field" value=10>
+                        </div>
+                        <div class="form__group">
+                            <label for="num6" class="form__label">Inverter Safety Factor (%)</label>
+                            <input type="number" id="safety-factor" class="form__field" value=15>
+                        </div>
+                        <div class="form__group">
+                            <label for="num3" class="form__label">Wiring and Cable Losses (%)</label>
+                            <input type="number" id="cableLoss" class="form__field" value=5>
+                        </div>
+                        <div class="form__group">
+                            <label for="num4" class="form__label">Mismatch Losses (%)</label>
+                            <input type="number" id="mismatchLoss" class="form__field" value=3>
+                        </div>
+                        <div class="form__group">
+                            <label for="num5" class="form__label">Soiling & Shading Losses (%)</label>
+                            <input type="number" id="soilingLoss" class="form__field" value=2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-wrapper calculate" onclick="calculate();">
+                <div class="card">
+                    <h2>Calculate</h2>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+
+                    <h2>Results</h2>
+
+                    <div class="results">
+                        <div>Size of Power Plant: <span class="final-result">0</span>kW</div>
+                        <div>Power Plant Output: <span class="final-result">0</span>kW</div>
+                        <div>Total Area Required: <span class="final-result">0</span>m<sup>2</sup></div>
+                        <div>Module Rating: <span class="final-result">0</span>W</div>
+                        <div>Number of Modules Required: <span class="final-result">0</span></div>
+                        <div>Inverter Power Rating: <span class="final-result">0</span>kW</div>
+                        <div>Total Cost (excluding 30% subsidy): ₹<span class="final-result">0</span></div>
+                        <div>Government Subsidized Cost: ₹<span class="final-result">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+
+    </footer>
+    <script type="text/javascript" src="js/ongrid.js"></script>
+</body>
+
+</html>

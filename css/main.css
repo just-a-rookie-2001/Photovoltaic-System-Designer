@@ -1,0 +1,326 @@
+html{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+sup {
+    font-size:small; 
+    vertical-align:super;
+}
+
+.site-header{
+    position: relative;
+    padding: 2.5rem;    
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.site-header .home-btn{
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    left: 2.5rem;
+}
+main{
+    margin: 100px auto 0 auto;
+    max-width: 1024px;
+}
+
+.card-wrapper{
+    margin-bottom: 40px;
+    padding: 2rem 4rem 2rem 4rem;
+    font-size: 1.75em;
+    box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 25px;
+    transition-duration: 0.5s;
+}
+.card-wrapper:hover{
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.nav-button{
+    margin-top: 3rem;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid #009d54;
+    border-radius: 25px;
+    background-color: white;
+    color: #009d54;
+    transition-duration: 0.5s;
+}
+.nav-button:hover{
+    background-color: #009d54;
+    color: white;
+}
+.nav-button-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Material Design Radio Button */
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+    font-size: 1.25rem;
+}
+.radio-group label {
+    cursor: pointer;
+  }
+.radio-group input[type="radio"] {
+    display: none;
+  }
+.radio-group input[type="radio"]:checked + span:before {
+    background-color: #009d54;
+    box-shadow: inset white 0 0 0 2px;
+  }
+.radio-group span {
+    display: flex;
+  }
+.radio-group span:before {
+    border: 2px solid #009d54;
+    content: '';
+    display: flex;
+    height: 16px;
+    width: 16px;
+    margin: 0 5px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: all ease .200s;
+    box-shadow: inset white 0 0 0 10px;
+  }
+
+  /* Material Design Slider */
+.slider {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.slider output{
+    margin-left: 1rem;
+}
+
+input[type="range"] {
+    -webkit-appearance: none !important;
+    width: 90%;
+    height: 3px;
+    background-color: #009d54;
+    border: none;
+    border-radius: 10px;
+    transition: all 400ms;
+    outline:none;
+    padding: 0;
+}
+  
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    transform:scale(0.75);
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: #009d54;
+    border-radius: 40px; 
+    box-shadow: 0px 0px 0px green;
+    transition: all 400ms;
+    outline:none
+}
+input[type="range"]::-webkit-slider-thumb:hover {  
+    transform:scale(1);
+}
+
+/* Material Design dropdown menu */
+.dropdown{
+    font-size: 1.25rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.select {
+    position: relative;
+    width: 30%;
+    overflow: none;
+}
+.select-text {
+    position: relative;
+    font-family: inherit;
+    background-color: transparent;
+    width: 100%;
+    padding: 10px 10px 10px 0;
+    font-size: 18px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+.select-text:focus {
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0, 0);
+}
+.select .select-text {
+    appearance: none;
+    -webkit-appearance:none
+}
+.select:after {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+}
+.select-label {
+    color: rgba(0,0,0, 0.26);
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+.select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
+    color: #009d54;
+    top: -12px;
+    transition: 0.2s ease all;
+    font-size: 1rem;
+}
+.select-bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+.select-bar:before, .select-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #009d54;
+    transition: 0.2s ease all;
+}
+.select-bar:before {
+    left: 50%;
+}
+.select-bar:after {
+    right: 50%;
+}
+.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+    width: 50%;
+}
+.select-highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Material Design Text Field */
+.energy-container{
+    font-size: 1.25rem;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-field-group{
+    position: relative;
+    width: 50%;
+}
+.textarea{
+    padding-bottom: 10px;
+    width: 100%;
+    font-size:18px;
+    color:#696969;
+    padding-top: 10px;
+    display: block;
+    border:none;
+    border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+.textarea:focus{
+    outline:none;
+}
+.Label{
+    color:rgba(0,0,0, 0.26);
+    font-size: 1rem;
+    left: 1px;
+    top: 13px;
+    position:absolute;
+    pointer-events:none;
+    transition: 0.5s ease all;
+}
+.textarea:focus ~ .Label, .textarea:valid ~ .Label{
+    top:-10px;
+    font-size:14px;
+    color: #009d54;
+}
+.bar  { 
+    position:relative; 
+    display:block;
+}
+.bar:before, .bar:after   {
+    content:'';
+    height:3px; 
+    width:0px;
+    bottom:0px; 
+    position:absolute;
+    background:#009d54; 
+    transition:0.2s ease all; 
+}
+.bar:before {
+    left:50%;
+}
+.bar:after {
+    right:50%; 
+}
+.textarea:focus ~ .bar:before, .textarea:focus ~ .bar:after {
+    width:50%;
+}
+
+/* Other Stuff */
+.default-parameters{
+    margin-top: 2rem;
+}
+.form__group > *{
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-right: 3rem;
+}
+
+.calculate{
+    cursor: pointer;
+    color: #009d54;
+    text-align: center;
+    background-color: white;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border: 5px solid #009d54 !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.calculate:hover{
+    color: white;
+    background-color: #009d54;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.results{
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+.results > *{
+    font-size: 1.25rem;
+    width: 50%;
+    margin-top: 1rem;
+}

@@ -46,13 +46,13 @@ Note: The project uses FETCH API, thus without a server the data will not load i
 The solar irradiation data is hard coded into *data.json*. Data is collected from [this](http://www.synergyenviron.com/tools/solar-irradiance) site (currently the data of only **Indian States and Cities** is hard coded). If the data needs to be modified, json structure shall not be changed.
 
     {
-	    state_name: {
+	        state_name: {
 					    city_name: data,
 					    city_name: data,
 					    ...
 					    city_name: data
 		},
-	    state_name: {
+	        state_name: {
 					    city_name: data,
 					    city_name: data,
 					    ...
